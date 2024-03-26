@@ -9,9 +9,9 @@ import { Visita } from './model/visitas.entity';
     type:'mysql',
     host:'localhost',
     port:3306,
-    username:'root',
+    username:'',
     password:'',
-    database:'elmonitor-032024',
+    database:'',
     entities:[Visita],
     synchronize:true
   })
