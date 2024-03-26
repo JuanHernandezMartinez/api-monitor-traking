@@ -6,8 +6,9 @@ import * as useragent from 'useragent';
 export class GuardarVisitasController {
   constructor(private guardarVisitasService: GuardarVisitasService) {}
   @Post()
-  guardar(@Req() req, @Body() tokenReq:String) {
-    console.log(tokenReq)
+  guardar(@Req() req, @Body() tokenReq) {
+    console.log(tokenReq.token)
+
     const clientIP = req.ip || req.connection.remoteAddress;
     const ipv4Address = clientIP.includes('::ffff:') ? clientIP.split(':').pop() : clientIP;
     const userAgentString = req.headers['user-agent'];
@@ -19,9 +20,7 @@ export class GuardarVisitasController {
       direccionIP: ipv4Address,
       dispositivo: deviceType,
       sistema_operativo: operatingSystem,
-      token:tokenReq?tokenReq:null
     };
-    this.guardarVisitasService.guardarVisita(datos);
-    return 
+    return this.guardarVisitasService.guardarVisita(datos,tokenReq);
   }
 }

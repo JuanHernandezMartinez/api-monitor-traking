@@ -3,5 +3,5 @@ export class VisitaDTO{
     dispositivo:String;
     sistema_operativo:String;
     token?:String;
-    visitasRepetidas?:Number;
+    visitasRepetidas?:number;
 }

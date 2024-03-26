@@ -1,6 +1,5 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+
 import { GuardarVisitasModule } from './guardar-visitas/guardar-visitas.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Visita } from './model/visitas.entity';
@@ -17,7 +16,7 @@ import { Visita } from './model/visitas.entity';
     synchronize:true
   })
     ,GuardarVisitasModule],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [],
+  providers: [],
 })
 export class AppModule {}

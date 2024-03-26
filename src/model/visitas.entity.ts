@@ -13,5 +13,5 @@ export class Visita{
     @Column()
     token:String;
     @Column()
-    visitasRepetidas:Number
+    visitasRepetidas:number
 }
