@@ -12,6 +12,8 @@ export class Visita{
     sistema_operativo:String;
     @Column()
     token:String;
-    @Column()
+    @Column({ default: 0 })
     visitasRepetidas:number
+    @Column()
+    campania:string
 }

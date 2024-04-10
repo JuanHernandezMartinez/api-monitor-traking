@@ -4,4 +4,5 @@ export class VisitaDTO{
     sistema_operativo:String;
     token?:String;
     visitasRepetidas?:number;
+    campania:string
 }

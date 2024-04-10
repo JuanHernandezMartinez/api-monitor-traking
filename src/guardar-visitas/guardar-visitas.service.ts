@@ -11,17 +11,17 @@ export class GuardarVisitasService {
     @InjectRepository(Visita) private visitaRepository: Repository<Visita>,
   ) {}
 
-  async guardarVisita(datos: VisitaDTO, tokenReq) {
-    if (tokenReq.token === null) {
+  async guardarVisita(datos: VisitaDTO, data) {
+    if (data.token === null) {
       let token: String = this.generarUUID();
       datos.token = token;
       this.visitaRepository.save(datos);
       console.log('guardado');
       return token;
     }
-    if (tokenReq.token !== null) {
+    if (data.token !== null) {
       let buscarPorToken = await this.visitaRepository.findOneBy({
-        token: tokenReq.token,
+        token: data.token,
       });
       if (buscarPorToken) {
         buscarPorToken.visitasRepetidas+=1;
